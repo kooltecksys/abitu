@@ -113,13 +113,13 @@
 {/if}
 
 <div class="buttons">
-  {#if current > 0 && current != 18}
+  {#if current > 0 && current != 20}
     <button class="active" on:click={back}>Previo</button>
   {/if}
-  {#if current < 18}
-    <button class:active={answer} on:click={next}>{ current < 18 ? 'Siguiente' : 'Terminar'}</button>
+  {#if current < 20}
+    <button class:active={answer} on:click={next}>{ current < 20 ? 'Siguiente' : 'Terminar'}</button>
   {/if}
-  {#if current == 18}
+  {#if current == 20}
     <button class="center" class:active={validateEmail(email) && name} on:click={end}>Ver resultado</button>
   {/if}
 </div>

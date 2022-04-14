@@ -14,8 +14,8 @@ export default [
     ask: "Edad",
     answers: [
       { a: "18 - 30", value: null },
-      { a: "31 - 50", value: "recharge" },
-      { a: "50+", value: "immunity" },
+      { a: "31 - 50", value: "glow" },
+      { a: "50+", value: "wellaid,magnesio" },
     ],
     key: "2. Edad",
   },
@@ -34,13 +34,14 @@ export default [
     ask: "Objetivo principal para tomar vitaminas o suplementos",
     answers: [
       { a: "Embarazarte", value: null },
-      { a: "Alergias", value: "immunity" },
-      { a: "Bienestar general", value: "immunity" },
-      { a: "Mejorar sistema inmunológico", value: "force immunity" },
+      { a: "Alergias", value: "wellaid" },
+      { a: "Bienestar general", value: "wellaid,magnesio" },
+      { a: "Mejorar sistema inmunológico", value: "wellaid" },
       { a: "Mejorar rendimiento físico", value: "recharge" },
-      { a: "Mejorar niveles de energía", value: "force recharge" },
-      { a: "Belleza", value: "force glow" },
-      { a: "Mejorar la calidad del sueño", value: null },
+      { a: "Mejorar niveles de energía", value: "recharge" },
+      { a: "Belleza", value: "glow" },
+      { a: "Mejorar la calidad del sueño", value: "magnesio" },
+      { a: "Problemas digestivos", value: "happibelly" },
     ],
     key: "4. Objetivo",
   },
@@ -54,7 +55,7 @@ export default [
       { a: "Vegano", value: "recharge" },
       { a: "Libre de gluten", value: null },
       { a: "Libre de lactosa", value: null },
-      { a: "Keto", value: "immunity" },
+      { a: "Keto", value: "wellaid,happibelly" },
       { a: "Pescatariano", value: null },
       { a: "Ninguna / Otra", value: null },
     ],
@@ -64,8 +65,8 @@ export default [
     type: "SOQ",
     ask: "¿Cuántas porciones de fruta y verduras consumes al día?",
     answers: [
-      { a: "0", value: "immunity" },
-      { a: "1", value: "immunity" },
+      { a: "0", value: "wellaid,magnesio,happibelly" },
+      { a: "1", value: "wellaid,magnesio,happibelly" },
       { a: "2 - 3", value: "glow" },
       { a: ">4", value: null },
     ],
@@ -76,9 +77,9 @@ export default [
     ask: "¿Consumes alcohol? ¿Cuántas copas a la semana?",
     answers: [
       { a: "0", value: null },
-      { a: "2", value: null },
-      { a: "4", value: null },
-      { a: "6+", value: "force recharge,force immunity" },
+      { a: "2", value: "magnesio,happibelly" },
+      { a: "4", value: "magnesio,happibelly" },
+      { a: "6+", value: "magnesio,happibelly" },
     ],
     key: "7. Alcohol",
   },
@@ -86,7 +87,7 @@ export default [
     type: "SOQ",
     ask: "¿Fumas?",
     answers: [
-      { a: "Sí", value: "force immunity" },
+      { a: "Sí", value: "force wellaid" },
       { a: "No", value: null },
     ],
     key: "8. Fumas",
@@ -94,11 +95,11 @@ export default [
   {
     type: "SOQ",
     ask:
-      "¿Consumes bebidas con cafeína (café, té, bebidas energizantes)? ¿Cuántas tazas al día?",
+    "¿Consumes bebidas con cafeína (café, té, bebidas energizantes)? ¿Cuántas tazas al día?",
     answers: [
       { a: "0 - 2", value: null },
-      { a: "2 - 4", value: "remove recharge" },
-      { a: "4+", value: "remove recharge" },
+      { a: "2 - 4", value: "remove recharge,magnesio", },
+      { a: "4+", value: "remove recharge,magnesio" },
     ],
     key: "9. Tazas de Cafeína",
   },
@@ -124,7 +125,7 @@ export default [
     block: "Salud y Bienestar",
     type: "SOQ",
     ask:
-      "¿Se te rompen mucho las uñas, sufres de piel seca o se te cae mucho el pelo?",
+    "¿Se te rompen mucho las uñas, sufres de piel seca o se te cae mucho el pelo?",
     answers: [
       { a: "Sí", value: "force glow" },
       { a: "No", value: null },
@@ -134,9 +135,9 @@ export default [
   {
     type: "SOQ",
     ask:
-      "¿Te enfermas con frecuencia, convives mucho con niños pequeños o vas a viajar en un avión durante el próximo mes?",
+    "¿Te enfermas con frecuencia, convives mucho con niños pequeños o vas a viajar en un avión durante el próximo mes?",
     answers: [
-      { a: "Sí", value: "force immunity" },
+      { a: "Sí", value: "force wellaid" },
       { a: "No", value: null },
     ],
     key: "13. Precaución",
@@ -144,10 +145,10 @@ export default [
   {
     type: "SOQ",
     ask:
-      "En ocasiones, ¿Te sientes cansado o sin energía?, ¿Te da bajón de energía o sueño a media tarde?",
+    "En ocasiones, ¿Te sientes cansado o sin energía?, ¿Te da bajón de energía o sueño a media tarde?",
     answers: [
       { a: "Sí", value: "force recharge" },
-      { a: "A veces", value: "force recharge,immunity" },
+      { a: "A veces", value: "force recharge,wellaid" },
       { a: "No", value: null },
     ],
     key: "14. Cansancio",
@@ -155,10 +156,10 @@ export default [
   {
     type: "SOQ",
     ask:
-      "¿Te cuesta trabajo concentrarte? ¿Te preocupa tu memoria a corto plazo?",
+    "¿Te cuesta trabajo concentrarte? ¿Te preocupa tu memoria a corto plazo?",
     answers: [
       { a: "Sí", value: "recharge" },
-      { a: "A veces", value: "force recharge,immunity" },
+      { a: "A veces", value: "force recharge,wellaid" },
       { a: "No", value: null },
     ],
     key: "15. Baja concentración",
@@ -167,9 +168,9 @@ export default [
     type: "DQ",
     ask: "¿Qué tan seguido te sientes estresado?",
     answers: [
-      { a: "Todo el tiempo", value: "recharge" },
-      { a: "Casi siempre", value: "recharge" },
-      { a: "En ocasiones", value: null },
+      { a: "Todo el tiempo", value: "wellaid,magnesio" },
+      { a: "Casi siempre", value: "magnesio" },
+      { a: "En ocasiones", value: "magnesio" },
       { a: "No me siento estresado", value: null },
     ],
     key: "16. Estresado",
@@ -178,8 +179,8 @@ export default [
     type: "SOQ",
     ask: "¿Haces ejercicio?",
     answers: [
-      { a: "Sí", value: "recharge" },
-      { a: "No", value: "recharge,immunity" },
+      { a: "Sí", value: "recharge,magnesio" },
+      { a: "No", value: "recharge,wellaid" },
     ],
     key: "17. Ejercicio",
   },
@@ -189,9 +190,27 @@ export default [
     answers: [
       { a: "Muy Sano", value: "glow" },
       { a: "Moderadamente sano", value: "glow,recharge" },
-      { a: "Poco sano", value: "glow,immunity" },
+      { a: "Poco sano", value: "glow,wellaid" },
     ],
     key: "18. Sano",
+  },
+  {
+    type: "SOQ",
+    ask: "¿Tienes síntomas como inflamación, gases y pesadez al terminar tus comidas? ",
+    answers: [
+      { a: "Sí", value: "force happibelly" },
+      { a: "No", value: null },
+    ],
+    key: "19. Síntomas",
+  },
+  {
+    type: "SOQ",
+    ask: "¿Te cuesta trabajo quedarte dormido  y al despertar sientes que no descansaste? ",
+    answers: [
+      { a: "Sí", value: "force magnesio" },
+      { a: "No", value: null },
+    ],
+    key: "20. Dormir",
   },
   {
     type: "IQ",

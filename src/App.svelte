@@ -11,13 +11,13 @@
 
   let pointsFor = {
     'recharge': 0,
-    'immunity': 0,
+    'wellaid': 0,
     'glow': 0,
   };
 
   function resetQuiz() {
     pointsFor.recharge = 0;
-    pointsFor.immunity = 0;
+    pointsFor.wellaid = 0;
     pointsFor.glow = 0;
     index = 0;
     answers = [];
@@ -27,6 +27,7 @@
 
   function endQuiz() {
     let final = {};
+    console.log(answers)
 
     answers.forEach((item, i) => {
       if (item instanceof Array) {
@@ -73,7 +74,7 @@
     if (event.detail.next) {
       index++;  
     } else {
-      if (index === 18) {
+      if (index === 20) {
         name = event.detail.answer.name;
         email = event.detail.answer.email;
         endQuiz();
@@ -83,63 +84,67 @@
   }
 
   function addPointTo(value) {
-    switch (value) {
-      case "recharge":
-        pointsFor.recharge += 1;
-        break;
-      case "force recharge":
-        pointsFor.recharge += 100;
-        break;
-      case "remove recharge":
-        pointsFor.recharge -= 300;
-        break;
-      case "immunity":
-        pointsFor.immunity += 1;
-        break;
-      case "force immunity":
-        pointsFor.immunity += 100;
-        break;
-      case "remove immunity":
-        pointsFor.immunity -= 300;
-        break;
-      case "glow":
-        pointsFor.glow += 1;
-        break;
-      case "force glow":
-        pointsFor.glow += 100;
-        break;
-      case "remove glow":
-        pointsFor.glow -= 300;
-        break;
-      case "force recharge,force immunity":
-        pointsFor.recharge += 100;
-        pointsFor.immunity += 100;
-        break;
-      case "force recharge,immunity":
-        pointsFor.recharge += 100;
-        pointsFor.immunity += 1;
-        break;
-      case "recharge,immunity":
-        pointsFor.recharge += 1;
-        pointsFor.immunity += 1;
-        break;
-      case "glow,recharge":
-        pointsFor.glow += 1;
-        pointsFor.recharge += 1;
-        break;
-      case "glow,immunity":
-        pointsFor.glow += 1;
-        pointsFor.immunity += 1;
-        break;
-      case "doctor":
-        // pointsFor.doctor += 100;
-        pointsFor.recharge -= 500;
-        pointsFor.immunity -= 500;
-        pointsFor.glow -= 500;
-        break;
-      default:
-        break;
-    }
+    const arrAnswers = value.split(',')
+    // foreach
+    arrAnswers.forEach(ans => {
+      
+      switch (value) {
+        case "recharge":
+          pointsFor.recharge += 1;
+          break;
+        case "force recharge":
+          pointsFor.recharge += 100;
+          break;
+        case "remove recharge":
+          pointsFor.recharge -= 300;
+          break;
+        case "wellaid":
+          pointsFor.wellaid += 1;
+          break;
+        case "force wellaid":
+          pointsFor.wellaid += 100;
+          break;
+        case "remove wellaid":
+          pointsFor.wellaid -= 300;
+          break;
+        case "glow":
+          pointsFor.glow += 1;
+          break;
+        case "force glow":
+          pointsFor.glow += 100;
+          break;
+        case "remove glow":
+          pointsFor.glow -= 300;
+          break;
+        case "magnesio":
+          pointsFor.magnesio += 1;
+          break;
+        case "force magnesio":
+          pointsFor.magnesio += 100;
+          break;
+        case "remove magnesio":
+          pointsFor.magnesio -= 300;
+          break;
+        case "happibelly":
+          pointsFor.happibelly += 1;
+          break;
+        case "force happibelly":
+          pointsFor.happibelly += 100;
+          break;
+        case "remove happibelly":
+          pointsFor.happibelly -= 300;
+          break;
+        case "doctor":
+        case "condition":
+          pointsFor.recharge -= 500;
+          pointsFor.wellaid -= 500;
+          pointsFor.glow -= 500;
+          break;
+        default:
+          break;
+      }
+    })
+
   }
 </script>
 
@@ -147,14 +152,14 @@
 {#if ended}
   <hr/>
 {:else}
-  <progress value={index/18} max="1"></progress>
+  <progress value={index/20} max="1"></progress>
 {/if}
 
 <section>
   {#if ended}
     <Results points={pointsFor} answers={answers}></Results>
   {:else}
-    <p class="small">{index+1} de 19</p>
+    <p class="small">{index+1} de 21</p>
     <Question 
       current={index} 
       question={questions[index]} 
