@@ -13,6 +13,8 @@
     'recharge': 0,
     'wellaid': 0,
     'glow': 0,
+    'magnesio': 0,
+    'happibelly': 0,
   };
 
   function resetQuiz() {
@@ -84,11 +86,13 @@
   }
 
   function addPointTo(value) {
-    const arrAnswers = value.split(',')
+    let arrAnswers = [value]
+    if (value != null && value.includes(',')) {
+      arrAnswers = [...value.split(',')]
+    }
     // foreach
     arrAnswers.forEach(ans => {
-      
-      switch (value) {
+      switch (ans) {
         case "recharge":
           pointsFor.recharge += 1;
           break;
@@ -139,6 +143,8 @@
           pointsFor.recharge -= 500;
           pointsFor.wellaid -= 500;
           pointsFor.glow -= 500;
+          pointsFor.magnesio -= 500;
+          pointsFor.happibelly -= 500;
           break;
         default:
           break;

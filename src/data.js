@@ -214,7 +214,7 @@ export default [
   },
   {
     type: "IQ",
-    ask: "Estemos en contacto",
+    ask: "Conoce tus resultados",
     answers: [],
     key: "",
   },

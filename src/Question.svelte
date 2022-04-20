@@ -84,14 +84,16 @@
 {#if question.type === "MOQ"}
   <p><small>Puedes elegir varias respuestas</small></p>
 {:else if question.type === "IQ"}
-  <p>
-    <small>
-      Deja tu dirección de correo electrónico para estar en contacto<br />A
-      continuación podrás conocer tus resultados
-    </small>
-  </p>
+<p>
+  <small>
+    Deja tu dirección de correo electrónico para estar en contacto<br />A
+    continuación podrás conocer tus resultados
+  </small>
+</p>
+{:else if question.ask === "Conoce tus resultados"}
+<p><small>Deja tu correo electrónico para recibir tus resultados</small></p>
 {:else}
-  <p><small>Elige una respuesta</small></p>
+<p><small>Elige una respuesta</small></p>
 {/if}
 
 <ul>

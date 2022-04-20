@@ -3,7 +3,7 @@
   export let answers;
 
   function check() {
-    if (points['wellaid'] < 4 && points['recharge'] < 4 && points['glow'] < 4 && points['magnesio'] < 4 && points['happibelly'] < 4) {
+    if (points['wellaid'] > 4 && points['recharge'] > 4 && points['glow'] > 4 && points['magnesio'] > 4 && points['happibelly'] > 4) {
       return true;
     }
     return false;
@@ -12,7 +12,7 @@
 
 <section>
   <h6>RECOMENDACIÓN</h6>
-  <p>para {answers[18]['name']}</p>
+  <p>para {answers[20]['name']}</p>
   <p>Usa el código <small><strong>Abitu2020</strong> en el checkout para aplicar tu descuento.</small><br/><small>Estas recomendaciones están basadas en tus respuestas y el conocimiento de nuestros expertos.</small></p>
   {#if answers[9]['a'] === 'Sí' }
     <p><small>Contestaste que actualmente estás bajo tratamiento con un medicamento que requiere receta médica, por lo que te recomendamos consultar a tu médico antes de consumir nuestros productos.</small></p>
@@ -25,7 +25,7 @@
 <div class="row">
   {#if points['wellaid'] > 4 || check()}
     <div class="col">
-      <img src="https://cdn.shopify.com/s/files/1/0327/9375/5786/products/Abitu_7_960x.jpg?v=1597100044" alt="wellaid">
+      <img src="https://cdn.shopify.com/s/files/1/0327/9375/5786/products/Ed_ab11_2048x2048.jpg?v=1649707519" alt="wellaid">
       <div class="text">
         <h6>TE RECOMENDAMOS</h6>
         <h3>Wellaid</h3>
@@ -109,7 +109,7 @@
   {/if}
   {#if points['glow'] > 4 || check()}
     <div class="col">
-      <img src="https://cdn.shopify.com/s/files/1/0327/9375/5786/products/Abitu_12_960x.jpg?v=1597100352" alt="Glow">
+      <img src="https://cdn.shopify.com/s/files/1/0327/9375/5786/products/glow2_2048x2048.jpg?v=1630428014" alt="Glow">
       <div class="text">
         <h6>TE RECOMENDAMOS</h6>
         <h3>Glow</h3>
