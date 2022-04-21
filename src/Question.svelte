@@ -86,12 +86,9 @@
 {:else if question.type === "IQ"}
 <p>
   <small>
-    Deja tu dirección de correo electrónico para estar en contacto<br />A
-    continuación podrás conocer tus resultados
+    Deja tu dirección de correo electrónico para descubrir tus resultados
   </small>
 </p>
-{:else if question.ask === "Conoce tus resultados"}
-<p><small>Deja tu correo electrónico para recibir tus resultados</small></p>
 {:else}
 <p><small>Elige una respuesta</small></p>
 {/if}
